@@ -1,0 +1,68 @@
+USE [HastaneDB]
+GO
+/****** Object:  Table [dbo].[Doktorlar]    Script Date: 3.05.2026 01:16:15 ******/
+SET ANSI_NULLS ON
+GO
+SET QUOTED_IDENTIFIER ON
+GO
+CREATE TABLE [dbo].[Doktorlar](
+	[DoktorID] [int] IDENTITY(1,1) NOT NULL,
+	[Ad] [nvarchar](50) NULL,
+	[Soyad] [nvarchar](50) NULL,
+	[Brans] [nvarchar](50) NULL,
+ CONSTRAINT [PK_Doktorlar] PRIMARY KEY CLUSTERED 
+(
+	[DoktorID] ASC
+)WITH (PAD_INDEX = OFF, STATISTICS_NORECOMPUTE = OFF, IGNORE_DUP_KEY = OFF, ALLOW_ROW_LOCKS = ON, ALLOW_PAGE_LOCKS = ON, OPTIMIZE_FOR_SEQUENTIAL_KEY = OFF) ON [PRIMARY]
+) ON [PRIMARY]
+GO
+/****** Object:  Table [dbo].[Gorevliler]    Script Date: 3.05.2026 01:16:15 ******/
+SET ANSI_NULLS ON
+GO
+SET QUOTED_IDENTIFIER ON
+GO
+CREATE TABLE [dbo].[Gorevliler](
+	[GorevliID] [int] IDENTITY(1,1) NOT NULL,
+	[KullaniciAdi] [nvarchar](50) NOT NULL,
+	[Sifre] [nvarchar](50) NOT NULL,
+	[AdSoyad] [nvarchar](100) NULL,
+PRIMARY KEY CLUSTERED 
+(
+	[GorevliID] ASC
+)WITH (PAD_INDEX = OFF, STATISTICS_NORECOMPUTE = OFF, IGNORE_DUP_KEY = OFF, ALLOW_ROW_LOCKS = ON, ALLOW_PAGE_LOCKS = ON, OPTIMIZE_FOR_SEQUENTIAL_KEY = OFF) ON [PRIMARY]
+) ON [PRIMARY]
+GO
+/****** Object:  Table [dbo].[Hastalar]    Script Date: 3.05.2026 01:16:15 ******/
+SET ANSI_NULLS ON
+GO
+SET QUOTED_IDENTIFIER ON
+GO
+CREATE TABLE [dbo].[Hastalar](
+	[HastaID] [int] IDENTITY(1,1) NOT NULL,
+	[Tc] [char](11) NULL,
+	[Ad] [nvarchar](50) NULL,
+	[Soyad] [nvarchar](50) NULL,
+	[Telefon] [nvarchar](50) NULL,
+ CONSTRAINT [PK_Hastalar] PRIMARY KEY CLUSTERED 
+(
+	[HastaID] ASC
+)WITH (PAD_INDEX = OFF, STATISTICS_NORECOMPUTE = OFF, IGNORE_DUP_KEY = OFF, ALLOW_ROW_LOCKS = ON, ALLOW_PAGE_LOCKS = ON, OPTIMIZE_FOR_SEQUENTIAL_KEY = OFF) ON [PRIMARY]
+) ON [PRIMARY]
+GO
+/****** Object:  Table [dbo].[Randevular]    Script Date: 3.05.2026 01:16:15 ******/
+SET ANSI_NULLS ON
+GO
+SET QUOTED_IDENTIFIER ON
+GO
+CREATE TABLE [dbo].[Randevular](
+	[RandevıID] [int] IDENTITY(1,1) NOT NULL,
+	[HastaID] [nvarchar](50) NULL,
+	[DoktorID] [nvarchar](50) NULL,
+	[Tarih] [datetime] NULL,
+	[Sikayet] [nvarchar](max) NULL,
+ CONSTRAINT [PK_Randevular] PRIMARY KEY CLUSTERED 
+(
+	[RandevıID] ASC
+)WITH (PAD_INDEX = OFF, STATISTICS_NORECOMPUTE = OFF, IGNORE_DUP_KEY = OFF, ALLOW_ROW_LOCKS = ON, ALLOW_PAGE_LOCKS = ON, OPTIMIZE_FOR_SEQUENTIAL_KEY = OFF) ON [PRIMARY]
+) ON [PRIMARY] TEXTIMAGE_ON [PRIMARY]
+GO
